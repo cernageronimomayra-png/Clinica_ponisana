@@ -6,3 +6,6 @@ venv/
 # Archivos de configuración locales y variables de entorno
 .env
 *.env
+
+__pycache__/
+*.pyc
