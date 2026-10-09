@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Listado de Consultas</h2>
+<a href="{{ url_for('consulta.crear') }}">Agendar Consulta</a>
+<br><br>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Motivo</th>
+            <th>ID Paciente</th>
+            <th>ID Médico</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for c in consultas %}
+        <tr>
+            <td>{{ c.id_consulta }}</td>
+            <td>{{ c.fecha }}</td>
+            <td>{{ c.hora }}</td>
+            <td>{{ c.motivo }}</td>
+            <td>{{ c.id_paciente }}</td>
+            <td>{{ c.id_medico }}</td>
+            <td>
+                <a href="{{ url_for('consulta.editar', id=c.id_consulta) }}">Editar</a>
+                <form action="{{ url_for('consulta.eliminar', id=c.id_consulta) }}" method="POST" style="display:inline;">
+                    <button type="submit" onclick="return confirm('¿Desea eliminar esta consulta?')">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
