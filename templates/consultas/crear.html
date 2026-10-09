@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Agendar Consulta</h2>
+<form action="{{ url_for('consulta.crear') }}" method="POST">
+    <label>Fecha:</label><br>
+    <input type="date" name="fecha" required><br><br>
+
+    <label>Hora:</label><br>
+    <input type="time" name="hora" required><br><br>
+
+    <label>Motivo:</label><br>
+    <input type="text" name="motivo" required><br><br>
+
+    <label>ID Paciente:</label><br>
+    <input type="number" name="id_paciente" required><br><br>
+
+    <label>ID Médico:</label><br>
+    <input type="number" name="id_medico" required><br><br>
+
+    <button type="submit">Guardar Consulta</button>
+    <a href="{{ url_for('consulta.index') }}">Cancelar</a>
+</form>
+{% endblock %}

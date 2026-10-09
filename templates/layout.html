@@ -6,8 +6,13 @@
 </head>
 <body>
     <h1>Gestión de Clínica Ponisana</h1>
+    <nav>
+        <a href="{{ url_for('paciente.index') }}">Pacientes</a> |
+        <a href="{{ url_for('medico.index') }}">Médicos</a> |
+        <a href="{{ url_for('consulta.index') }}">Consultas</a> |
+        <a href="{{ url_for('tratamiento.index') }}">Tratamientos</a>
+    </nav>
     <hr>
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 {% block content %}
 <h2>Listado de Pacientes</h2>
-<a href="{{ url_for('entidad.crear') }}">Registrar Nuevo Paciente</a>
+<a href="{{ url_for('paciente.crear') }}">Registrar Nuevo Paciente</a>
 <br><br>
 <table border="1">
     <thead>
@@ -26,8 +26,8 @@
             <td>{{ p.direccion }}</td>
             <td>{{ p.fecha_nacimiento }}</td>
             <td>
-                <a href="{{ url_for('entidad.editar', id=p.id_paciente) }}">Editar</a>
-                <form action="{{ url_for('entidad.eliminar', id=p.id_paciente) }}" method="POST" style="display:inline;">
+                <a href="{{ url_for('paciente.editar', id=p.id_paciente) }}">Editar</a>
+                <form action="{{ url_for('paciente.eliminar', id=p.id_paciente) }}" method="POST" style="display:inline;">
                     <button type="submit" onclick="return confirm('¿Desea eliminar este paciente?')">Eliminar</button>
                 </form>
             </td>
@@ -36,3 +36,4 @@
     </tbody>
 </table>
 {% endblock %}
+

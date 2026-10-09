@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Listado de Tratamientos</h2>
+<a href="{{ url_for('tratamiento.crear') }}">Registrar Tratamiento</a>
+<br><br>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Costo</th>
+            <th>ID Consulta</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in tratamientos %}
+        <tr>
+            <td>{{ t.id_tratamiento }}</td>
+            <td>{{ t.descripcion }}</td>
+            <td>${{ t.costo }}</td>
+            <td>{{ t.id_consulta }}</td>
+            <td>
+                <a href="{{ url_for('tratamiento.editar', id=t.id_tratamiento) }}">Editar</a>
+                <form action="{{ url_for('tratamiento.eliminar', id=t.id_tratamiento) }}" method="POST" style="display:inline;">
+                    <button type="submit" onclick="return confirm('¿Desea eliminar este tratamiento?')">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
