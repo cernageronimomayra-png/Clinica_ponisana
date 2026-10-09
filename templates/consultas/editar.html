@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Editar Consulta</h2>
+<form action="{{ url_for('consulta.editar', id=consulta.id_consulta) }}" method="POST">
+    <label>Fecha:</label><br>
+    <input type="date" name="fecha" value="{{ consulta.fecha }}" required><br><br>
+
+    <label>Hora:</label><br>
+    <input type="time" name="hora" value="{{ consulta.hora }}" required><br><br>
+
+    <label>Motivo:</label><br>
+    <input type="text" name="motivo" value="{{ consulta.motivo }}" required><br><br>
+
+    <label>ID Paciente:</label><br>
+    <input type="number" name="id_paciente" value="{{ consulta.id_paciente }}" required><br><br>
+
+    <label>ID Médico:</label><br>
+    <input type="number" name="id_medico" value="{{ consulta.id_medico }}" required><br><br>
+
+    <button type="submit">Actualizar Consulta</button>
+    <a href="{{ url_for('consulta.index') }}">Cancelar</a>
+</form>
+{% endblock %}
+
