@@ -9,7 +9,7 @@ def index():
 
 @paciente_bp.route('/form', methods=['GET', 'POST'])
 @paciente_bp.route('/form/<int:id>', methods=['GET', 'POST'])
-def formulario(id=None):
+def crear(id=None):
     paciente = model.obtener_por_id(id) if id else None
     if request.method == 'POST':
         if id:

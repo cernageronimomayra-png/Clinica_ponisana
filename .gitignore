@@ -7,10 +7,8 @@ venv/
 .env
 *.env
 
-<<<<<<< HEAD
 __pycache__/
 *.pyc
-=======
 # Archivos compilados de Python
 __pycache__/*
 *.pyc
