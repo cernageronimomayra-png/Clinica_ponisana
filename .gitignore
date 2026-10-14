@@ -6,3 +6,21 @@ venv/
 # Archivos de configuración locales y variables de entorno
 .env
 *.env
+
+# Archivos compilados de Python
+__pycache__/*
+*.pyc
+*.pyo
+*.pyd
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
