@@ -23,3 +23,4 @@ def formulario(id=None):
 def eliminar(id):
     model.eliminar(id)
     return redirect(url_for('consulta.index'))
+    return redirect(url_for('consulta.index'))
