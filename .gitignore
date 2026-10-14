@@ -7,6 +7,11 @@ venv/
 .env
 *.env
 
+<<<<<<< HEAD
+=======
+__pycache__/
+*.pyc
+>>>>>>> d157f2a97492d1924b4eb4367dc1a0e1349f4056
 # Archivos compilados de Python
 __pycache__/*
 *.pyc
@@ -23,4 +28,9 @@ __pycache__/*
 *.ntvs*
 *.njsproj
 *.sln
+<<<<<<< HEAD
 *.sw?
+=======
+*.sw?
+>>>>>>> 4a1b15d53fd2cf817f86722fb2f8245cfbb16bdf
+>>>>>>> d157f2a97492d1924b4eb4367dc1a0e1349f4056
