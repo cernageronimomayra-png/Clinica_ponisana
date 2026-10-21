@@ -1,95 +1,247 @@
-/* Configuración general */
+/* ====================================================
+   CLÍNICA PONI SANA - ESTILOS MÉDICOS
+   ==================================================== */
+
+:root {
+    --color-primary: #1A4273;      /* Azul marino institucional */
+    --color-secondary: #2C8C61;    /* Verde médico */
+    --color-accent: #65C5DC;       /* Celeste claro */
+    --color-bg: #F4F7F9;           /* Fondo gris clínico suave */
+    --color-card-bg: #FFFFFF;     /* Tarjetas e interiores en blanco */
+    --color-text: #2D3748;         /* Texto oscuro legible */
+    --color-border: #E2E8F0;       /* Bordes sutiles */
+    --shadow-soft: 0 4px 12px rgba(26, 66, 115, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f4f6f9;
-    color: #333;
-}
-
-h1, h2 {
-    color: #2c3e50;
-}
-
-/* Barra de navegación */
-nav {
-    background-color: #2c3e50;
-    padding: 12px;
-    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-nav a {
-    color: white;
+/* ----------------------------------------------------
+   HEADER Y NAVEGACIÓN
+---------------------------------------------------- */
+.navbar-header {
+    background-color: var(--color-card-bg);
+    border-bottom: 3px solid var(--color-secondary);
+    box-shadow: var(--shadow-soft);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.5px;
+}
+
+.brand-tagline {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+}
+
+.nav-links a {
+    color: var(--color-primary);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.nav-links a:hover {
+    background-color: #EBF8FF;
+    color: var(--color-secondary);
 }
 
-/* Contenedor principal */
-.layout-container {
-    margin-top: 20px;
+/* ----------------------------------------------------
+   CONTENIDO PRINCIPAL
+---------------------------------------------------- */
+.main-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+    flex: 1;
 }
 
-/* Tablas */
+h1, h2, h3 {
+    color: var(--color-primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+/* ----------------------------------------------------
+   TABLAS
+---------------------------------------------------- */
 table {
     width: 100%;
-    border-collapse: collapse;
-    background-color: white;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
     margin-top: 15px;
+    border: 1px solid var(--color-border);
 }
 
 th, td {
-    padding: 10px;
+    padding: 14px 16px;
     text-align: left;
-    border: 1px solid #ddd;
 }
 
 th {
-    background-color: #3498db;
-    color: white;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.95rem;
+}
+
+tr:last-child td {
+    border-bottom: none;
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #F8FAFC;
 }
 
-/* Formularios y Botones */
+tr:hover {
+    background-color: #EDF2F7;
+}
+
+/* ----------------------------------------------------
+   FORMULARIOS Y BOTONES
+---------------------------------------------------- */
 form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
+    background-color: var(--color-card-bg);
+    padding: 24px;
+    border-radius: 8px;
     max-width: 500px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-soft);
     margin-top: 15px;
+}
+
+label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 6px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="number"],
 input[type="date"],
-input[type="time"] {
+input[type="time"],
+select {
     width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    padding: 10px 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(101, 197, 220, 0.25);
 }
 
 button, .btn {
-    background-color: #28a745;
+    background-color: var(--color-secondary);
     color: white;
-    padding: 8px 16px;
+    padding: 10px 20px;
+    font-weight: 600;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-button:hover {
-    background-color: #218838;
+button:hover, .btn:hover {
+    background-color: #23704E;
+}
+
+button:active, .btn:active {
+    transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   FOOTER
+---------------------------------------------------- */
+.footer {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 0.85rem;
+    margin-top: 40px;
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }
