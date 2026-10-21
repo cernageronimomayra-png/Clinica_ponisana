@@ -115,7 +115,7 @@ h1, h2, h3 {
 }
 
 /* ----------------------------------------------------
-   TABLAS
+   TABLAS GENERALES
 ---------------------------------------------------- */
 table {
     width: 100%;
@@ -160,7 +160,7 @@ tr:hover {
 }
 
 /* ----------------------------------------------------
-   FORMULARIOS Y BOTONES
+   FORMULARIOS GENERALES DE REGISTRO
 ---------------------------------------------------- */
 form {
     background-color: var(--color-card-bg);
@@ -204,11 +204,13 @@ input:focus, select:focus {
 button, .btn {
     background-color: var(--color-secondary);
     color: white;
-    padding: 10px 20px;
+    padding: 8px 16px;
     font-weight: 600;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
     transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
@@ -218,6 +220,41 @@ button:hover, .btn:hover {
 
 button:active, .btn:active {
     transform: scale(0.98);
+}
+
+/* ----------------------------------------------------
+   ESTILOS PARA ALINEAR BOTONES EN LA COLUMNA ACCIONES
+---------------------------------------------------- */
+td {
+    vertical-align: middle; /* Alinea verticalmente los contenidos de las celdas */
+}
+
+/* Forzamos a que el formulario dentro de la tabla no genere un bloque ni sombras */
+table td form {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Espacio uniforme entre botones de Editar y Eliminar */
+table td a, 
+table td form {
+    margin-right: 8px;
+}
+
+/* Botón opcional rojo si quieres resaltar Eliminar */
+.btn-danger, 
+button.btn-danger {
+    background-color: #d9534f !important;
+    color: white !important;
+}
+
+.btn-danger:hover, 
+button.btn-danger:hover {
+    background-color: #c9302c !important;
 }
 
 /* ----------------------------------------------------
