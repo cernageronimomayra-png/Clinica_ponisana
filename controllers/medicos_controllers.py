@@ -1,28 +1,33 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 import models.medico_model as model
 
-# 1. Definición del Blueprint en plural y con su prefijo de URL
+# Definimos el Blueprint para Médicos
 medicos_bp = Blueprint('medicos', __name__, url_prefix='/medicos')
 
-# 2. Ruta principal (lista de médicos)
+# 1. Ruta principal para listar médicos
 @medicos_bp.route('/')
 def index():
-    return render_template('medicos/index.html', medicos=model.obtener_todos())
+    medicos = model.obtener_todos()
+    return render_template('medicos/index.html', medicos=medicos)
 
-# 3. Ruta para el formulario (Crear / Editar)
-@medicos_bp.route('/form', methods=['GET', 'POST'])
-@medicos_bp.route('/form/<int:id>', methods=['GET', 'POST'])
-def formulario(id=None):
-    medico = model.obtener_por_id(id) if id else None
+# 2. Ruta para CREAR médico
+@medicos_bp.route('/crear', methods=['GET', 'POST'])
+def crear():
     if request.method == 'POST':
-        if id:
-            model.actualizar(id, request.form)
-        else:
-            model.guardar(request.form)
+        model.guardar(request.form)
         return redirect(url_for('medicos.index'))
-    return render_template('medicos/form.html', medico=medico)
+    return render_template('medicos/crear.html')
 
-# 4. Ruta para eliminar
+# 3. Ruta para EDITAR médico
+@medicos_bp.route('/editar/<int:id>', methods=['GET', 'POST'])
+def editar(id):
+    medico = model.obtener_por_id(id)
+    if request.method == 'POST':
+        model.actualizar(id, request.form)
+        return redirect(url_for('medicos.index'))
+    return render_template('medicos/editar.html', medico=medico)
+
+# 4. Ruta para ELIMINAR médico
 @medicos_bp.route('/eliminar/<int:id>', methods=['POST'])
 def eliminar(id):
     model.eliminar(id)
