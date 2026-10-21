@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/estilos.css') }}">
-    <title>Clínica Ponisana</title>
+    <title>Clínica Bonisana</title>
 </head>
-
 <body>
-    <h1>Gestión de Clínica Ponisana</h1>
+
+    <h1>Gestión de Clínica Bonisana</h1>
+
     <nav>
         <a href="{{ url_for('paciente.index') }}">Pacientes</a>
-        <a href="{{ url_for('medicos.index') }}">Médicos</a> |
-        <a href="{{ url_for('consulta.index') }}">Consultas</a> |
+        <a href="{{ url_for('medicos.index') }}">Médicos</a>
+        <a href="{{ url_for('consulta.index') }}">Consultas</a>
         <a href="{{ url_for('tratamientos.index') }}">Tratamientos</a>
     </nav>
-    <hr>
-    {% block content %}{% endblock %}
-    
+
+    <div class="layout-container">
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+
     <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 </body>
-
 </html>
