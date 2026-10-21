@@ -2,18 +2,18 @@
 
 {% block content %}
 <h2>Editar Tratamiento</h2>
-<form action="{{ url_for('tratamiento.editar', id=tratamiento.id_tratamiento) }}" method="POST">
-    <label>Descripción:</label><br>
-    <input type="text" name="descripcion" value="{{ tratamiento.descripcion }}" required><br><br>
+<form action="{{ url_for('tratamientos.editar', id=tratamiento.id_tratamiento) }}" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" value="{{ tratamiento.nombre }}" required>
 
-    <label>Costo:</label><br>
-    <input type="number" step="0.01" name="costo" value="{{ tratamiento.costo }}" required><br><br>
+    <label for="dosis">Dosis:</label>
+    <input type="text" name="dosis" value="{{ tratamiento.dosis }}" required>
 
-    <label>ID Consulta:</label><br>
-    <input type="number" name="id_consulta" value="{{ tratamiento.id_consulta }}" required><br><br>
+    <label for="duracion">Duración:</label>
+    <input type="text" name="duracion" value="{{ tratamiento.duracion }}" required>
 
-    <button type="submit">Actualizar Tratamiento</button>
-    <a href="{{ url_for('tratamiento.index') }}">Cancelar</a>
+    <button type="submit">Guardar Cambios</button>
+    <a href="{{ url_for('tratamientos.index') }}">Cancelar</a>
 </form>
 {% endblock %}
 

@@ -9,11 +9,8 @@
     <label>Especialidad:</label><br>
     <input type="text" name="especialidad" value="{{ medico.especialidad }}" required><br><br>
     
-    <label>Teléfono:</label><br>
-    <input type="text" name="telefono" value="{{ medico.telefono }}" required><br><br>
-    
-    <label>Email:</label><br>
-    <input type="email" name="email" value="{{ medico.email }}" required><br><br>
+    <label>Horario:</label><br>
+    <input type="text" name="horario" value="{{ medico.horario }}" required><br><br>
     
     <button type="submit">Actualizar Médico</button>
     <a href="{{ url_for('medicos.index') }}">Cancelar</a>
