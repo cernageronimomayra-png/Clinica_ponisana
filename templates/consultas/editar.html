@@ -2,23 +2,36 @@
 
 {% block content %}
 <h2>Editar Consulta</h2>
+
 <form action="{{ url_for('consulta.editar', id=consulta.id_consulta) }}" method="POST">
-    <label>Fecha:</label><br>
+    <label for="fecha">Fecha:</label><br>
     <input type="date" name="fecha" value="{{ consulta.fecha }}" required><br><br>
 
-    <label>Hora:</label><br>
+    <label for="hora">Hora:</label><br>
     <input type="time" name="hora" value="{{ consulta.hora }}" required><br><br>
 
-    <label>Motivo:</label><br>
+    <label for="motivo">Motivo:</label><br>
     <input type="text" name="motivo" value="{{ consulta.motivo }}" required><br><br>
 
-    <label>ID Paciente:</label><br>
-    <input type="number" name="id_paciente" value="{{ consulta.id_paciente }}" required><br><br>
+    <label for="id_paciente">Paciente:</label><br>
+    <select name="id_paciente" required>
+        {% for p in pacientes %}
+            <option value="{{ p.id_paciente }}" {% if p.id_paciente == consulta.id_paciente %}selected{% endif %}>
+                {{ p.nombre }}
+            </option>
+        {% endfor %}
+    </select><br><br>
 
-    <label>ID Médico:</label><br>
-    <input type="number" name="id_medico" value="{{ consulta.id_medico }}" required><br><br>
+    <label for="id_medico">Médico:</label><br>
+    <select name="id_medico" required>
+        {% for m in medicos %}
+            <option value="{{ m.id_medico }}" {% if m.id_medico == consulta.id_medico %}selected{% endif %}>
+                {{ m.nombre }} - {{ m.especialidad }}
+            </option>
+        {% endfor %}
+    </select><br><br>
 
-    <button type="submit">Actualizar Consulta</button>
+    <button type="submit">Guardar Cambios</button>
     <a href="{{ url_for('consulta.index') }}">Cancelar</a>
 </form>
 {% endblock %}

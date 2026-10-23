@@ -19,15 +19,19 @@
     <tbody>
         {% for p in pacientes %}
         <tr>
-            <td>{{ p.id_paciente }}</td>
+            <td>{{ loop.index }}</td>
+
             <td>{{ p.nombre }}</td>
             <td>{{ p.rut }}</td>
             <td>{{ p.telefono }}</td>
             <td>{{ p.direccion }}</td>
             <td>{{ p.fecha_nacimiento }}</td>
-            <td>
-                <a href="{{ url_for('paciente.crear', id=p.id_paciente) }}">Editar</a>
-                <form action="{{ url_for('paciente.eliminar', id=p.id_paciente) }}" method="POST" style="display:inline;">
+
+            <!-- 2. EN LAS ACCIONES MANTENEMOS p.id_paciente PARA LA BASE DE DATOS -->
+            <td style="display: flex; align-items: center; gap: 8px;">
+                <a href="{{ url_for('paciente.editar', id=p.id_paciente) }}">Editar</a>
+
+                <form action="{{ url_for('paciente.eliminar', id=p.id_paciente) }}" method="POST" style="margin: 0; display: inline;">
                     <button type="submit" onclick="return confirm('¿Desea eliminar este paciente?')">Eliminar</button>
                 </form>
             </td>

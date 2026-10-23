@@ -7,7 +7,7 @@
 <table class="table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>#</th>
             <th>NOMBRE</th>
             <th>ESPECIALIDAD</th>
             <th>HORARIO</th>
@@ -15,21 +15,21 @@
         </tr>
     </thead>
     <tbody>
+        <!-- El bucle DEBE empezar AQUÍ, justo antes del <tr> -->
         {% for m in medicos %}
         <tr>
-            <td>{{ m.id_medico }}</td>
+            <td>{{ loop.index }}</td>
             <td>{{ m.nombre }}</td>
             <td>{{ m.especialidad }}</td>
             <td>{{ m.horario }}</td>
-            <td style="display: flex; align-items: center; gap: 8px;">
+            <td>
                 <a href="{{ url_for('medicos.editar', id=m.id_medico) }}">Editar</a>
-
-                <form action="{{ url_for('medicos.eliminar', id=m.id_medico) }}" method="POST" style="margin: 0; display: inline;">
+                <form action="{{ url_for('medicos.eliminar', id=m.id_medico) }}" method="POST" style="display:inline;">
                     <button type="submit" onclick="return confirm('¿Desea eliminar este médico?')">Eliminar</button>
                 </form>
             </td>
         </tr>
-        {% endfor %}
+        {% endfor %} <!-- El bucle DEBE terminar AQUÍ, justo después del </tr> -->
     </tbody>
 </table>
 {% endblock %}

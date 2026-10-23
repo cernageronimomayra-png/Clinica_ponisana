@@ -20,14 +20,14 @@
     <tbody>
         {% for c in consultas %}
         <tr>
-            <td>{{ c.id_consulta }}</td>
+            <td>{{ loop.index }}</td>
             <td>{{ c.fecha }}</td>
             <td>{{ c.hora }}</td>
             <td>{{ c.motivo }}</td>
-            <!-- Mostramos los nombres traídos desde la consulta con JOIN -->
             <td>{{ c.nombre_paciente }}</td>
             <td>{{ c.nombre_medico }}</td>
             <td>
+                <!-- Mantenemos id=c.id_consulta para la base de datos -->
                 <a href="{{ url_for('consulta.editar', id=c.id_consulta) }}">Editar</a>
                 <form action="{{ url_for('consulta.eliminar', id=c.id_consulta) }}" method="POST" style="display:inline;">
                     <button type="submit" onclick="return confirm('¿Desea eliminar esta consulta?')">Eliminar</button>

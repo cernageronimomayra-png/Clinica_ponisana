@@ -17,13 +17,13 @@
     <tbody>
         {% for t in tratamientos %}
         <tr>
-            <td>{{ t.id_tratamiento }}</td>
+            <td>{{ loop.index }}</td>
             <td>{{ t.nombre }}</td>
             <td>{{ t.dosis }}</td>
             <td>{{ t.duracion }}</td>
             <td style="display: flex; align-items: center; gap: 8px;">
+                <!-- Mantenemos id=t.id_tratamiento para la base de datos -->
                 <a href="{{ url_for('tratamientos.editar', id=t.id_tratamiento) }}">Editar</a>
-
                 <form action="{{ url_for('tratamientos.eliminar', id=t.id_tratamiento) }}" method="POST" style="margin: 0; display: inline;">
                     <button type="submit" onclick="return confirm('¿Desea eliminar este tratamiento?')">Eliminar</button>
                 </form>

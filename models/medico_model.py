@@ -7,12 +7,14 @@ def obtener_por_id(id_m):
     return ejecutar_sql("SELECT * FROM medicos WHERE id_medico = %s", (id_m,), fetch_one=True)
 
 def guardar(datos):
-    sql = "INSERT INTO medicos (nombre, especialidad, telefono, email) VALUES (%s, %s, %s, %s)"
-    ejecutar_sql(sql, (datos['nombre'], datos['especialidad'], datos['telefono'], datos['email']))
+    sql = "INSERT INTO medicos (nombre, especialidad, horario) VALUES (%s, %s, %s)"
+    valores = (datos['nombre'], datos['especialidad'], datos['horario'])
+    ejecutar_sql(sql, valores)
 
 def actualizar(id_m, datos):
-    sql = "UPDATE medicos SET nombre=%s, especialidad=%s, telefono=%s, email=%s WHERE id_medico=%s"
-    ejecutar_sql(sql, (datos['nombre'], datos['especialidad'], datos['telefono'], datos['email'], id_m))
+    sql = "UPDATE medicos SET nombre=%s, especialidad=%s, horario=%s WHERE id_medico=%s"
+    valores = (datos['nombre'], datos['especialidad'], datos['horario'], id_m)
+    ejecutar_sql(sql, valores)
 
 def eliminar(id_m):
     ejecutar_sql("DELETE FROM medicos WHERE id_medico = %s", (id_m,))
